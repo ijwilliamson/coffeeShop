@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <orderPage>
+        
+        <h1>Coffee Shop</h1>
+
+        <table id="menu">
+            <thead>
+                <td class="name">Drinks</td>
+                <td class="price">Price</td>
+                <td class="btnTd"></td>
+            </thead>
+        </table>
+    
+        <div id="total">
+            <td>
+                <li>Items: 0</li>
+                <li>Total: £00.00</li>
+            </td>
+        </div>
+
+        <button id="payButton">Pay Now</button> 
+    </orderPage>
+
+    <payPage class="hide">
+        <div class="triangle-left" id="back"></div>
+        <h1>Coffee Shop Bill</h1>
+        <table id="bill">
+            <thead>
+                <td class="name">Drinks</td>
+                <td class="price">Price</td>
+                <td class="qty">Qty</td>
+                <td class="totalPrice">Total</td>
+            </thead>
+        </table>
+
+        <div id="billTotal">
+            <td>
+                <li>Items: 0</li>
+                <li>Total: £00.00</li>
+            </td>
+        </div>
+
+        <div>
+            <p>Pay with customer credit - select customer to check balance</p>
+            <select id="customers">
+                <option name="Select a customer" value=""></option>
+            </select>
+            <p id="available"></p>
+        </div>
+        
+
+    </payPage>
+    
+        
+    <!-- Nothing below this point -->
+    <script src="./src/coffeeShop.js"></script>
+</body>
+</html>

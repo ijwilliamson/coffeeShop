@@ -1,0 +1,114 @@
+body{
+    background-color:bisque;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:large;
+  margin:0px;
+  padding:0px;
+  width:100vw;
+  height:100vh;
+  max-width: 800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+orderPage, payPage{
+    width:100%;
+    height:100%;
+     display:flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   transition-duration: 1s;
+}
+
+payPage{
+    background-color: brown;
+   color: bisque;
+   justify-content: flex-start;
+}
+
+
+#menu, #bill{
+    display:table;
+    width: 100%;
+    padding: 0px;
+    border-spacing: 0px;
+    }
+
+#menu thead{
+    background-color: brown;
+    color:antiquewhite;
+}
+
+#bill thead{
+    background-color: bisque;
+    color:brown;
+}
+
+#menu tr, #bill tr{
+  height:2em;
+    }
+
+h1{
+    margin:22px;
+    font-size: 2em;
+    text-align: center;
+    }
+
+.name{
+    width:auto;
+    font-size: 1em;
+    padding-left: 20px;
+    }
+
+.price{
+    width:100px;
+    padding-left: 20px}
+
+
+.btnTd{width:50px;}
+
+#total, #billTotal{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top:1px bisque dashed;
+    border-bottom:1px bisque dashed;
+    padding-top:12px;
+    padding-bottom:12px;
+    margin-top:12px;
+    margin-bottom:12px;
+
+}
+
+#total li, #billTotal li{
+    display:block;
+}
+
+#payButton{
+    margin-bottom:12px;
+}
+
+.hide{
+    display:none;
+    transition-duration: 1s;
+}
+
+.triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 15px solid transparent;
+	border-right: 25px solid bisque;
+	border-bottom: 15px solid transparent;
+    position:absolute;
+    left:20px;
+    margin:20px;
+    filter:drop-shadow(2px 2px 2px black)
+}
+
+.triangle-left:hover {
+    border-right: 25px solid rgb(217, 253, 153);
+    cursor:pointer;
+
+}
