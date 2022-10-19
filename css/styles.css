@@ -128,3 +128,13 @@ payHeader{
     cursor:pointer;
 
 }
+
+#customers{
+    border-radius: 10px;
+    line-height: 1.6em;
+    font-size: 1.2em;
+    /* -webkit-appearance: none; */
+    text-indent: 0.4em;
+    padding: 0.2em;
+    background-color: bisque;
+}
