@@ -1,5 +1,5 @@
 body{
-    background-color:bisque;
+    background-color:rgb(133, 123, 108);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size:large;
   margin:0px;
@@ -12,13 +12,17 @@ body{
 }
 
 orderPage, payPage{
-    width:100%;
+    background-color: bisque;
+    width:calc(100% - 20px);
     height:100%;
      display:flex;
    flex-direction: column;
-   justify-content: space-between;
+   justify-content: flex-start;
    align-items: center;
    transition-duration: 1s;
+   margin-left:10px;
+   margin-right:10px;
+   filter:drop-shadow(4px 0px 5px black)
 }
 
 payPage{
@@ -79,7 +83,12 @@ h1{
     padding-bottom:12px;
     margin-top:12px;
     margin-bottom:12px;
+}
 
+#total{
+    
+    border-top:1px brown dashed;
+    border-bottom:1px brown dashed;
 }
 
 #total li, #billTotal li{
@@ -95,15 +104,22 @@ h1{
     transition-duration: 1s;
 }
 
+payHeader{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+
 .triangle-left {
 	width: 0;
 	height: 0;
 	border-top: 15px solid transparent;
 	border-right: 25px solid bisque;
 	border-bottom: 15px solid transparent;
-    position:absolute;
-    left:20px;
-    margin:20px;
+    margin-left:20px;
     filter:drop-shadow(2px 2px 2px black)
 }
 

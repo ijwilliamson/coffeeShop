@@ -1,4 +1,8 @@
+//--------------------------------------------------
+//----------- Coffee Shop Class Example ------------
+//--------------------------------------------------
 
+// Functions required by the classes
 
 const wizard = (id)=>{
 // Call back function which is passed to the item buttons
@@ -11,6 +15,8 @@ const wizard = (id)=>{
     totals.innerHTML = order.totalHtml();
 
 }
+
+// Classes
 
 class ShopItem  {
     constructor(id, name, price,myCallBack){
@@ -147,7 +153,7 @@ class ShopOrder {
     }
 
     totalHtml() {
-        return `<td><li>Items: ${this.orderItemsQty()}</li><li>Total: £${this.orderTotal().toFixed(2)}</li></td>`
+        return `<td><li>Items: ${this.billItemsQty()}</li><li>Total: £${this.orderTotal().toFixed(2)}</li></td>`
     }
 
     totalBillHtml() {
@@ -172,6 +178,17 @@ class Customer {
 
 }
 
+class Customers{
+    constructor(customers){
+        this._customers = customers;   
+    }
+
+    get all() {return this._customers};
+    set all(value) {this._customers = value};
+}
+
+// HTML elements
+
 const payPage = document.getElementsByTagName('payPage')[0];
 const orderPage = document.getElementsByTagName('orderPage')[0];
 const bill = document.getElementById('bill');
@@ -181,9 +198,10 @@ const totals = document.getElementById('total');
 const backButton = document.getElementById('back');
 const customerSelect = document.getElementById('customers');
 const balanceMsg = document.getElementById('available');
+
+// Application variables
+
 const order = new ShopOrder;
-
-
 
 const menuItems = [
     new ShopItem(0,'Espresso', 2.75,wizard),
@@ -196,16 +214,43 @@ const menuItems = [
     new ShopItem(7, 'Con Panna', 3.25,wizard),
     new ShopItem(8, 'Macchiato', 1.50,wizard),
     new ShopItem(9, 'Cuban', 3.50,wizard),
-    new ShopItem(10,'Affogato', 4.20,wizard)];
+    new ShopItem(10,'Affogato', 4.20,wizard)
+];
 
-const customers = [
+const customerList = [
     new Customer('Frank Binns',33.23),
     new Customer('Mark Swindle', 98.34),
     new Customer('Grace Fairtree', 12.19),
     new Customer('George Wobbler', 2.23)
 ];
 
+const customers = new Customers(customerList);
+
 let page = 0;
+
+// Functions
+
+    // page management
+const switchPage = ()=>{
+    page = !page;
+    if (page==0){
+        orderPage.classList.remove('hide');
+        payPage.classList.add('hide');
+    }
+    else
+    {
+        orderPage.classList.add('hide');
+        payPage.classList.remove('hide');
+    }
+}
+
+    // Menu page funcation
+
+menuItems.forEach((item) =>{
+    table.appendChild(item.htmlMenuRow());
+});
+
+    // Pay page functions
 
 const handlePay = ()=>{
     switchPage();
@@ -221,7 +266,7 @@ const handlePay = ()=>{
 
 const populateCustomerSelect=()=> {
    while (customerSelect.options.length >0) {customerSelect.remove(0)}
-    customers.forEach((cust) => {
+    customers.all.forEach((cust) => {
         customerSelect.add(
             new Option(cust.name,cust.balance)
         )
@@ -234,22 +279,7 @@ const updateBalance=()=> {
     balanceMsg.textContent = `${customerSelect.selectedOptions[0].label} has a balance of £${customerSelect.value}`;
 }
 
-const switchPage = ()=>{
-    page = !page;
-    if (page==0){
-        orderPage.classList.remove('hide');
-        payPage.classList.add('hide');
-    }
-    else
-    {
-        orderPage.classList.add('hide');
-        payPage.classList.remove('hide');
-    }
-}
-
-menuItems.forEach((item) =>{
-    table.appendChild(item.htmlMenuRow());
-});
+//Events
 
 document.getElementById('payButton').
     addEventListener('click',handlePay);
@@ -257,15 +287,3 @@ document.getElementById('payButton').
 backButton.addEventListener('click',()=>switchPage())
 
 customerSelect.addEventListener('change', (event)=>updateBalance(event))
-
-
-
-
-
-
-
-   
-     
-
-
-
